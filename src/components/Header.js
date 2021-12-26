@@ -1,6 +1,7 @@
 import React from 'react'
 
-function Header() {
+export default function Header(props) {
+    const {countCartItems} = props;
     return (
         <div>
             <header className="row block center">
@@ -10,11 +11,16 @@ function Header() {
                     </a>
                 </div>
                 <div>
-                    <a href="#/cart">Cart</a> <a href="#/signin">Sign In</a>
+                    <a href="#/cart">
+
+                        Cart{' '}
+                        {countCartItems? (
+                            <button className="badge">{countCartItems}</button>
+                        ):(' ')}
+
+                    </a> <a href="#/signin">Sign In</a>
                 </div>
             </header>
         </div>
     )
-}
-
-export default Header
+};
